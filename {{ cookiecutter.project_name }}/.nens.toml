@@ -3,7 +3,3 @@ uses_ansible = false
 uses_python = true
 meta_version = "0.7.dev0"
 project_name = "{{ cookiecutter.project_name }}"
-
-
-[money]
-project_number = "{{ cookiecutter.project_number }}"

@@ -2,15 +2,9 @@
 
 ## Post-generation checklist
 
-First a little bit of github administration:
+If you have worked on other rana processes or Prefect projects, you probably have these two installed already:
 
-- [ ] Just making sure: you created a github repo and did the init/add/push shown after generating the project?
-- [ ] Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" team with **write** access. Otherwise you're the only one who can work on it.
-- [ ] On that same page, add the team "nelen-schuurmans-pull-only" with **read** access. Otherwise the server cannot download the docker image.
-
-If you're working on other rana processes, you probably have these two installed already:
-
-- [ ] Instead of virtualenv&pip, we now use `uv`. It handles the virtualenv, the pip install, pinning versions. It also works much faster. You need to install it, [here are the instructions](https://docs.astral.sh/uv/getting-started/installation/).
+- [ ] Instead of virtualenv & pip, we now use `uv`. It handles the virtualenv, the pip install, pinning versions. It also works much faster. You need to install it, [here are the instructions](https://docs.astral.sh/uv/getting-started/installation/).
 - [ ] Run `uv sync`.
 - [ ] To keep the code readable and maintainable, we use pre-commit. Install it with `pip install pre-commit` .
 - [ ] Set up pre-commit to automatically run before every commit: `pre-commit install` .
@@ -20,10 +14,14 @@ Lastly a bit of readme cleanup:
 - [ ] In the next section, quickly add an initial sentence about the project.
 - [ ] Remove this whole post-generation checklist from the readme. You won't need it anymore as you've diligently checked off every item :-)
 
+Necessary Github administration if you want to share your code with others:
 
-## Project documentation
+- [ ] Just making sure: you created a github repo and did the init/add/push shown after generating the project?
+- [ ] Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" add "programeurs" team with **write** access. Otherwise you're the only one who can work on it.
 
-Project number: {{ cookiecutter.project_number }}.
+
+
+## Rana process documentation
 
 TODO: add the documentation of your code here, what the aim is, etc.
 
