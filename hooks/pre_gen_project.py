@@ -13,8 +13,8 @@ def validate_project_name(project_name: str = PROJECT_NAME):
     if "_" in project_name:
         print("Convention: project_name should use - instead of underscores")
         sys.exit(1)
-    if not project_name.startswith("prefect-"):
-        print("Convention: project_name should start with 'prefect-'")
+    if not project_name.startswith("rana-process-"):
+        print("Convention: project_name should start with 'rana-process-'")
         sys.exit(1)
 
 

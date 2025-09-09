@@ -1,4 +1,4 @@
-# {{ cookiecutter.project_name }} prefect task
+# {{ cookiecutter.project_name }} Rana process
 
 ## Post-generation checklist
 
@@ -8,7 +8,7 @@ First a little bit of github administration:
 - [ ] Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" team with **write** access. Otherwise you're the only one who can work on it.
 - [ ] On that same page, add the team "nelen-schuurmans-pull-only" with **read** access. Otherwise the server cannot download the docker image.
 
-If you're working on other prefect tasks, you probably have these two installed already:
+If you're working on other rana processes, you probably have these two installed already:
 
 - [ ] Instead of virtualenv&pip, we now use `uv`. It handles the virtualenv, the pip install, pinning versions. It also works much faster. You need to install it, [here are the instructions](https://docs.astral.sh/uv/getting-started/installation/).
 - [ ] Run `uv sync`.

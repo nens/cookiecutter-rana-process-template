@@ -1,5 +1,5 @@
 [project]
-name = "cookiecutter-prefect-template"
+name = "cookiecutter-rana-process-template"
 version = "0.1-dev0"
 dependencies = [
     "cookiecutter>=2.6.0",

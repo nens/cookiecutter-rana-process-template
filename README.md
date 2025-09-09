@@ -1,6 +1,8 @@
-# Cookiecutter template for N&S prefect projects
+# Cookiecutter template for N&S Rana processes
 
-Cookiecutter ([www.cookiecutter.io](https://www.cookiecutter.io/)) generates fresh projects from a template. `cookiecutter-prefect-template` is the template for our prefect tasks/flows. The advantage: easy to start and a similar structure for every project.
+Cookiecutter ([www.cookiecutter.io](https://www.cookiecutter.io/)) generates fresh projects from a template.
+`cookiecutter-rana-process-template` is the template for our Rana processes.
+The advantage: easy to start and a similar structure for every project.
 
 ## Using the cookiecutter
 
@@ -8,16 +10,18 @@ You need to install the cookiecutter program with pip (or pipx). Then you can ca
 
     $ pip install cookiecutter  # Or "uv tool install cookiecutter"
     $ cookiecutter --version  # Should be 2 or higher.
-    $ cookiecutter https://github.com/nens/cookiecutter-prefect-template
+    $ cookiecutter https://github.com/nens/cookiecutter-rana-process-template
 
 It will ask for a project name:
 
 - Lowercase only, please.
-- Start with `prefect-`.
+- Start with `rana-process-`.
 - Dashes, no underscores.
-- So something like `prefect-flater-sync`.
+- So something like `rana-process-flater-sync`.
 
-Create a new repo on github **with exactly the same name**. Make it an empty repo, so don't let github generate a license or readme. If you do generate a readme, you'll have to copy over generated files by hand and you'll probably forget the hidden `.github/` files and so, so don't do that :-)
+Create a new repo on github **with exactly the same name**.
+Make it an empty repo, so don't let github generate a license or readme.
+If you do generate a readme, you'll have to copy over generated files by hand and you'll probably forget the hidden `.github/` files and so, so don't do that :-)
 
 Instructions for the paragraph above will be printed after generating the project, but mentioning it twice won't hurt.
 
@@ -32,6 +36,7 @@ The regular:
 
 
 ## Short explanation of the server setup
+> This is not relevant for a Rana process, remove?
 
 Prefect can be run in multiple ways. Often, the cloud offering is used. We host our own server.
 

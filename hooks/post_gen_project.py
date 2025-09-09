@@ -1,12 +1,9 @@
 from pathlib import Path
 
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
-PROJECT_NUMBER = "{{ cookiecutter.project_number }}"
 
 
-def print_instructions(
-    project_name: str = PROJECT_NAME, project_number: str = PROJECT_NUMBER
-):
+def print_instructions(project_name: str = PROJECT_NAME):
     # This hook is executed inside the generated directory.
     current_dir = str(Path(".").absolute())
 
@@ -15,7 +12,7 @@ def print_instructions(
         f"name={project_name}",
         "owner=nens",
         "visibility=private",
-        f"description=Prefect+tasks+for+{project_number}",
+        "description=Rana+process+for+tasks",
     ]
     creation_url = base_url + "&".join(arguments)
     print("")
