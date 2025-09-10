@@ -1,0 +1,72 @@
+from os import environ
+from subprocess import run
+from uuid import UUID
+
+from pydantic import BaseModel, SecretStr
+from pydantic_settings import BaseSettings, PydanticBaseSettingsSource, SettingsConfigDict
+from pydantic_settings_yaml.base_settings import YamlConfigSettingsSource
+
+from process_settings.settings import LizardSettings
+
+__all__ = ["get_local_test_settings"]
+
+
+class TestThreediSettings(BaseModel):
+    host: str  # AnyHttpUrl adds a trailing "/"
+    api_key: SecretStr
+    organisation: UUID
+
+
+class TestDataset(BaseModel):
+    id: str
+    title: str
+    lizard_raster_id: str
+
+
+class LocalTestSettings(BaseSettings):
+    lizard: LizardSettings
+    threedi: TestThreediSettings | None = None
+    datasets: dict[str, TestDataset] = {}
+
+    @classmethod
+    def settings_customise_sources(
+        cls,
+        settings_cls: type[BaseSettings],
+        init_settings: PydanticBaseSettingsSource,
+        env_settings: PydanticBaseSettingsSource,
+        dotenv_settings: PydanticBaseSettingsSource,
+        file_secret_settings: PydanticBaseSettingsSource,
+    ) -> tuple[PydanticBaseSettingsSource, ...]:
+        """Define the sources and their order for loading the settings values.
+
+        We use the following priority for loading settings:
+
+        1. Arguments passed to the Settings class initialiser.
+        2. Environment variables prefixed with "RANA_" (use "__" as a nested delimiter).
+           for example: RANA_LIZARD__API_KEY
+        3. Variables from Config.yaml_file (replacing <file:path-to-secret> with the contents of the file).
+
+        Returns:
+            A tuple containing the sources and their order for
+            loading the settings values.
+        """
+        return (
+            init_settings,
+            env_settings,
+            dotenv_settings,
+            YamlConfigSettingsSource(settings_cls),
+            file_secret_settings,
+        )
+        
+    print(run("ls"))
+
+    model_config = SettingsConfigDict(
+        secrets_dir=environ.get("SETTINGS_SECRETS_DIR", "/etc/secrets"),
+        yaml_file="config.yaml",
+        env_prefix="RANA_",
+        env_nested_delimiter="__",
+    )
+
+
+def get_local_test_settings() -> LocalTestSettings:
+    return LocalTestSettings()  # type: ignore

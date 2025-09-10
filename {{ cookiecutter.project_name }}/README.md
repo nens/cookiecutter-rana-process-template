@@ -4,7 +4,7 @@
 
 If you have worked on other rana processes or Prefect projects, you probably have these two installed already:
 
-- [ ] Instead of virtualenv & pip, we now use `uv`. It handles the virtualenv, the pip install, pinning versions. It also works much faster. You need to install it, [here are the instructions](https://docs.astral.sh/uv/getting-started/installation/).
+- [ ] To make it easy for Windows user to install GDAL we use `conda`. It handles the virtualenv, the pip install, and pinning versions. You need to install it, [here are the instructions](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 - [ ] Run `uv sync`.
 - [ ] To keep the code readable and maintainable, we use pre-commit. Install it with `pip install pre-commit` .
 - [ ] Set up pre-commit to automatically run before every commit: `pre-commit install` .
@@ -28,22 +28,35 @@ TODO: add the documentation of your code here, what the aim is, etc.
 
 ## Development instructions
 
-Some `uv` commands:
+Sets up the python environment
+```sh
+conda create -n {{ cookiecutter.project_name }} python=3.12
+```
 
-    $ uv sync  # Sets up the .venv and does the "pip install"
-    $ uv add your-dependency  # If you need numpy or so; replaces requirements.txt
-    $ uv run prefect server start  # "uv run" automatically runs in your .venv
-    $ uv run src/flows.py
-    $ uv sync --upgrade  # Allow upgrades to versions.
+Activate conda environment
+```sh
+conda activate {{ cookiecutter.project_name }}
+```
 
-Write your script in the `src` folder, with your 'main' script in `flows.py`, and tasks
-in `tasks.py`. Feel free to add new folders or files in the `src` folder. Create a
-deployment in `python src/server.py`.
+Install Python requirements
+```sh
+conda install --yes --file requirements.txt
+```
 
-There are test instructions in `flows.py` and `tasks.py`. Running `flows.py` will start a temporary prefect server and run whatever tasks you call in the `__main__`:
+Intall GDAL through conda-forge
+```sh
+conda install -c conda-forge gdal
+```
 
-    $ uv run src/flows.py
+Write your process in the `src` folder, with your 'main' script in `process.py`.
+Feel free to add new folders or files in the `src` folder.
 
+## Running your process locally
+
+You can run your process through configuration of a local test environment. This is done in `run_process.py`.
+
+```sh
+```
 
 ## Handy vscode setup: all ready for use
 
