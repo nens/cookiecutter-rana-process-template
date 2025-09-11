@@ -2,7 +2,8 @@
 
 TODO: add a description or documentation of your code here, what the aim is, etc.
 
-If you have worked on other rana processes or Prefect projects, you probably have these two installed already:
+Write your process in the `src` folder, with your 'main' script in `process.py`.
+Feel free to add new folders or files in the `src` folder.
 
 ## Development instructions
 
@@ -11,21 +12,15 @@ Sets up the python environment
 conda env create -n {{ cookiecutter.project_name }} -f environment.yml
 ```
 
-Run the local test:
+## Running your process locally
+
+You can run your process locally through configuration of a local test runtime. 
+This is done in `./run_local_test.py`.
+
+Once configured, run local test:
 ```sh
 conda run -n {{ cookiecutter.project_name }} python run_local_test.py
 ```
-
-Write your process in the `src` folder, with your 'main' script in `process.py`.
-Feel free to add new folders or files in the `src` folder.
-
-## Running your process locally
-
-You can run your process through configuration of a local test environment. This is done in `run_process.py`.
-
-```sh
-```
-
 
 ## Handy vscode setup: all ready for use
 
