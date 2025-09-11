@@ -1,10 +1,9 @@
 from contextlib import chdir
-import os
 from pathlib import Path
-import shutil
+from subprocess import run
+
 from cookiecutter.main import cookiecutter
 from pytest import fixture
-from subprocess import run
 
 TEST_PROCESS_NAME = "rana-process-test"
 

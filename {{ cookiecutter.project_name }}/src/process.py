@@ -29,4 +29,3 @@ def process(context: RanaContext[ProcessOutputs], inputs: ProcessInputs) -> None
     context.set_output(
         ProcessOutputs(upper=inputs.name.upper())
     )
-

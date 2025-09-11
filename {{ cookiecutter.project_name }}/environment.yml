@@ -9,7 +9,7 @@ dependencies:
   - pip
   # pip/PyPI packages
   - pip:
-      - clean-python[api-client] 
+      - clean-python[api-client]
       - pydantic-settings-yaml
       - threedi_api_client
       - threedi_schema

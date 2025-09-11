@@ -2,6 +2,7 @@ from pathlib import Path
 
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
 
+
 def print_instructions(project_name: str = PROJECT_NAME):
     """This hook is executed inside the generated directory."""
     generated_dir = str(Path(".").absolute())
@@ -11,7 +12,9 @@ def print_instructions(project_name: str = PROJECT_NAME):
     print("Project location:", generated_dir)
     print()
     print("To get started, open the the this project in VScode (or another IDE)")
-    print("See the ./README.md file for the next steps.")
+    print("See the README.md in the project for the next steps.")
+    print()
+    print(f" > {generated_dir}/README.md")
     print()
 
 

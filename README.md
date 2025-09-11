@@ -9,11 +9,11 @@ First make sure you have Cookiecutter installed before using the template.
 
 ## Installing Cookiecutter
 
-You need to install the cookiecutter program with pip (or pipx). 
+You need to install the cookiecutter program with pip (or pipx).
 
 Use your terminal (for Windows Conda, command-prompt):
 ```sh
-pip install cookiecutter  
+pip install cookiecutter
 ```
 
 Alternative uv:
@@ -26,7 +26,7 @@ Check the installed version (al least 2.0.0):
 cookiecutter --version
 ```
 
-## Using the template 
+## Using the template
 
 You initiate the template by call cookiecutter with the URL of this GitHub repository.
 
@@ -39,9 +39,16 @@ It will ask for a project name:
 
 Open the terminal (for Windows Conda, command-prompt) and navigate to a directory of choice and run the following command:
 
+Using https:
 ```sh
 cookiecutter https://github.com/nens/cookiecutter-rana-process-template
 ```
+
+Using ssh:
+```sh
+cookiecutter git@github.com:nens/cookiecutter-rana-process-template
+```
+
 (Alternative, you might need to use `python -m cookiecutter` if `cookiecutter` is not recognized as a command.)
 
 After the command, open the the the new directory in VScode (or another IDE).

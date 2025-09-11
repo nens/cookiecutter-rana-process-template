@@ -57,7 +57,7 @@ class LocalTestSettings(BaseSettings):
             YamlConfigSettingsSource(settings_cls),
             file_secret_settings,
         )
-        
+
     model_config = SettingsConfigDict(
         secrets_dir=environ.get("SETTINGS_SECRETS_DIR", "/etc/secrets"),
         yaml_file="config.yaml",
