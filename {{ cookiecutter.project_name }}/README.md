@@ -1,51 +1,19 @@
-# {{ cookiecutter.project_name }} Rana process
+# {{ cookiecutter.project_name }}
 
-## Post-generation checklist
+TODO: add a description or documentation of your code here, what the aim is, etc.
 
 If you have worked on other rana processes or Prefect projects, you probably have these two installed already:
-
-- [ ] To make it easy for Windows user to install GDAL we use `conda`. It handles the virtualenv, the pip install, and pinning versions. You need to install it, [here are the instructions](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
-- [ ] Run `uv sync`.
-- [ ] To keep the code readable and maintainable, we use pre-commit. Install it with `pip install pre-commit` .
-- [ ] Set up pre-commit to automatically run before every commit: `pre-commit install` .
-
-Lastly a bit of readme cleanup:
-
-- [ ] In the next section, quickly add an initial sentence about the project.
-- [ ] Remove this whole post-generation checklist from the readme. You won't need it anymore as you've diligently checked off every item :-)
-
-Necessary Github administration if you want to share your code with others:
-
-- [ ] Just making sure: you created a github repo and did the init/add/push shown after generating the project?
-- [ ] Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" add "programeurs" team with **write** access. Otherwise you're the only one who can work on it.
-
-
-
-## Rana process documentation
-
-TODO: add the documentation of your code here, what the aim is, etc.
-
 
 ## Development instructions
 
 Sets up the python environment
 ```sh
-conda create -n {{ cookiecutter.project_name }} python=3.12
+conda env create -n {{ cookiecutter.project_name }} -f environment.yml
 ```
 
-Activate conda environment
+Run the local test:
 ```sh
-conda activate {{ cookiecutter.project_name }}
-```
-
-Install Python requirements
-```sh
-conda install --yes --file requirements.txt
-```
-
-Intall GDAL through conda-forge
-```sh
-conda install -c conda-forge gdal
+conda run -n {{ cookiecutter.project_name }} python run_local_test.py
 ```
 
 Write your process in the `src` folder, with your 'main' script in `process.py`.
@@ -58,6 +26,7 @@ You can run your process through configuration of a local test environment. This
 ```sh
 ```
 
+
 ## Handy vscode setup: all ready for use
 
 - If you use vscode and did the `uv sync` thingy above, the python plugin will detect   your code and prefect. So you'll have proper code completion! And type hints become more useful. (**Note**: you should have called `uv sync` first, before starting vscode, otherwise you have to select the python version manually: `.venv/bin/python` or so).
@@ -66,6 +35,60 @@ You can run your process through configuration of a local test environment. This
 - The "run and debug" button in the activity bar runs `src/flows.py` against localhost:4200 if you select "{{ cookiecutter.__debug_action_name }}" in the dropdown. See the instructions in `src/flows.py` on how to use it.
 
 Nice, easy, modern development with mostly-automatic formatting and neatness!
+
+
+## Upload your project to github
+
+First, use the following url to create a new empty repo on github.
+'Empty' means don't let github generate a readme, .gitignore or license, the cookiecutter already provides them to you.
+
+> [https://github.com/new?name={{ cookiecutter.project_name }}&owner=nens&visibility=private&description=Rana+process](https://github.com/new?name={{ cookiecutter.project_name }}&owner=nens&visibility=private&description=Rana+process)
+
+Done? Go to your generated project and do some git magic:
+
+- Open terminal and go to your Rana process:
+```sh
+cd {current_dir}
+```
+
+- Initialize a new git repository:
+```sh
+git init
+```
+
+- Add all files:
+```sh
+git add -A
+```
+
+- Commit the files:
+```sh
+git commit -m "Generated with cookiecutter"
+```
+
+- Set the main branch to `main` (not `master`):
+```sh
+git branch -M main
+```
+
+- Add the remote repository (choose https or ssh):
+```sh
+git remote add origin https://github.com/nens/{{ cookiecutter.project_name }}.git
+```
+
+- Or for ssh:
+```sh
+git remote add origin git@github.com:nens/{{ cookiecutter.project_name }}.git
+```
+
+- Push the code to GitHub:
+```sh
+git push origin")
+```
+
+- Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" add "programeurs" team with at least **read** access.
+
+- Lastly, share your project using the following URL: [https://github.com/nens/{{ cookiecutter.project_name }}](https://github.com/nens/{{ cookiecutter.project_name }})
 
 
 ## Deploying your flow to production

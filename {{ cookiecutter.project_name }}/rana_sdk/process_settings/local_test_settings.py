@@ -58,8 +58,6 @@ class LocalTestSettings(BaseSettings):
             file_secret_settings,
         )
         
-    print(run("ls"))
-
     model_config = SettingsConfigDict(
         secrets_dir=environ.get("SETTINGS_SECRETS_DIR", "/etc/secrets"),
         yaml_file="config.yaml",

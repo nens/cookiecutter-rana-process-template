@@ -6,7 +6,7 @@ from cookiecutter.main import cookiecutter
 from pytest import fixture
 from subprocess import run
 
-TEST_PROCESS_PATH = "./test_process"
+TEST_PROCESS_NAME = "rana-process-test"
 
 
 @fixture
@@ -14,29 +14,28 @@ def process(tmp_path: Path) -> Path:
     cookiecutter(
         template=".",
         output_dir=str(tmp_path),
-        extra_context={"project_name": "rana-process-test"},
+        extra_context={"project_name": TEST_PROCESS_NAME},
         no_input=True,
     )
-    return tmp_path / "rana-process-test"
+    return tmp_path / TEST_PROCESS_NAME
 
 
-def merge_copytree(src, dst):
-    for item in os.listdir(src):
-        src_path = os.path.join(src, item)
-        dst_path = os.path.join(dst, item)
-
-        if os.path.isdir(src_path):
-            if not os.path.exists(dst_path):
-                os.makedirs(dst_path)
-            merge_copytree(src_path, dst_path)
-        else:
-            shutil.copy2(src_path, dst_path)
-
-
-def test_hello_world(process: Path):
-    merge_copytree(TEST_PROCESS_PATH, process)
-
+def test_process(process: Path):
     with chdir(process):
-        print(run(["ls"], check=True))
-        run(["uv", "sync"], check=True)
-        run(["uv", "run", "run_local_test.py"], check=True)
+        run(
+            [
+                "conda",
+                "env",
+                "create",
+                "-n",
+                "test_process",
+                "-f",
+                "environment.yml",
+                "--yes",
+            ],
+            check=True,
+        )
+        run(
+            ["conda", "run", "-n", "test_process", "python", "run_local_test.py"],
+            check=True,
+        )

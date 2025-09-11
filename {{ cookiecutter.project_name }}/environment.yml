@@ -1,0 +1,17 @@
+name: {{ cookiecutter.project_name }}
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  # conda/conda-forge packages
+  - gdal[numpy]
+  - pip
+  # pip/PyPI packages
+  - pip:
+      - clean-python[api-client] 
+      - pydantic-settings-yaml
+      - threedi_api_client
+      - threedi_schema
+      - GeoAlchemy2
+      - prefect==3.2.7
