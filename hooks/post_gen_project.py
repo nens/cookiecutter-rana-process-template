@@ -11,7 +11,7 @@ def print_instructions(project_name: str = PROJECT_NAME):
     print()
     print("Project location:", generated_dir)
     print()
-    print("To get started, open the the this project in VScode (or another IDE)")
+    print("To get started, open the this project in VScode (or another IDE)")
     print("See the README.md in the project for the next steps.")
     print()
     print(f" > {generated_dir}/README.md")

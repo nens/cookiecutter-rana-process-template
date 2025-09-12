@@ -1,25 +1,44 @@
 # {{ cookiecutter.project_name }}
 
-TODO: add a description or documentation of your code here, what the aim is, etc.
-
-Write your process in the `src` folder, with your 'main' script in `process.py`.
-Feel free to add new folders or files in the `src` folder.
+In this project you can implement your Rana process workflow, ready to be deployed in our Nelen & Schuurmans Rana platform.
+Write your process in the `src/process.py` script, add additional files or modules as needed.
+Processes use the RanaSDK package to interact with the platform, handle inputs and outputs, and manage runtime contexts.
+See the package documentation [here](https://github.com/nens/ranasdk/) for more information (TODO).
 
 ## Development instructions
 
 Sets up the python environment
 ```sh
-conda env create -n {{ cookiecutter.project_name }} -f environment.yml
+conda env create -n {{ cookiecutter.project_name }} --file environment.yml
 ```
+
+## Local test configuration
+
+Rana processes can be run locally, this requires you to configure a local test runtime.
+See `./run_local_test.py`.
+
+// TODO: some instructions to configure the local test runtime.
+// - explain purpose of runtime
+// - inputs and outputs
+// - project_dir function
+// - settings in config.yaml
 
 ## Running your process locally
 
-You can run your process locally through configuration of a local test runtime. 
-This is done in `./run_local_test.py`.
+Once local test hash been configured, run the local test using your Conda environment.
 
 Once configured, run local test:
 ```sh
 conda run -n {{ cookiecutter.project_name }} python run_local_test.py
+```
+
+Alternative, if `conda run` does not work, activate the environment first:
+```sh
+conda activate {{ cookiecutter.project_name }}
+```
+
+```sh
+python run_local_test.py
 ```
 
 ## Handy vscode setup: all ready for use
@@ -32,10 +51,10 @@ conda run -n {{ cookiecutter.project_name }} python run_local_test.py
 Nice, easy, modern development with mostly-automatic formatting and neatness!
 
 
-## Upload your project to github
+## Upload your project to GitHub 
 
-First, use the following url to create a new empty repo on github.
-'Empty' means don't let github generate a readme, .gitignore or license, the cookiecutter already provides them to you.
+If you finish your Rana process project and would like to you can share it on GitHub.
+First, use the following url to create a new empty repo on GitHub ('Empty' means no readme, .gitignore or license):
 
 > [https://github.com/new?name={{ cookiecutter.project_name }}&owner=nens&visibility=private&description=Rana+process](https://github.com/new?name={{ cookiecutter.project_name }}&owner=nens&visibility=private&description=Rana+process)
 
@@ -78,25 +97,9 @@ git remote add origin git@github.com:nens/{{ cookiecutter.project_name }}.git
 
 - Push the code to GitHub:
 ```sh
-git push origin")
+git push origin
 ```
 
 - Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" add "programeurs" team with at least **read** access.
 
 - Lastly, share your project using the following URL: [https://github.com/nens/{{ cookiecutter.project_name }}](https://github.com/nens/{{ cookiecutter.project_name }})
-
-
-## Deploying your flow to production
-
-On every commit to the `main` branch, a new docker image is generated on github *if pre-commit doesn't complain* and *if the docker image can be build*. The server looks for new images every five minutes and downloads+restarts it automatically.
-
-Should the github action complain about pre-commit, upgrade the config and run it again:
-
-    $ pre-commit autoupdate
-    $ pre-commit run --all
-
-Should the github action fail on the docker image creation, try that one out locally and fix any errors:
-
-    $ docker build .
-
-Initially, ask Taj or Reinout to add your new deployment to the [prefect-setup repo](https://github.com/nens/prefect-setup/blob/main/docker-compose.task.yml)_.
