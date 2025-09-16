@@ -1,6 +1,5 @@
 from src.process import process
-from rana_process_sdk import run_local_test, LocalTestRanaRuntime
-from local_test_settings import get_local_test_settings
+from rana_process_sdk import run_local_test, LocalTestRanaRuntime, get_local_test_settings
 
 
 runtime = LocalTestRanaRuntime(
