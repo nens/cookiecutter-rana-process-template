@@ -51,7 +51,7 @@ python run_local_test.py
 Nice, easy, modern development with mostly-automatic formatting and neatness!
 
 
-## Upload your project to GitHub 
+## Upload your project to GitHub
 
 If you finish your Rana process project and would like to you can share it on GitHub.
 First, use the following url to create a new empty repo on GitHub ('Empty' means no readme, .gitignore or license):

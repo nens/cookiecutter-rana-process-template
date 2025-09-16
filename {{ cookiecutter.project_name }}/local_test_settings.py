@@ -1,14 +1,17 @@
 from os import environ
-from subprocess import run
 from uuid import UUID
 
 from pydantic import BaseModel, SecretStr
-from pydantic_settings import BaseSettings, PydanticBaseSettingsSource, SettingsConfigDict
+from pydantic_settings import (
+    BaseSettings,
+    PydanticBaseSettingsSource,
+    SettingsConfigDict,
+)
 from pydantic_settings_yaml.base_settings import YamlConfigSettingsSource
 
-from process_settings.settings import LizardSettings
+from rana_process_sdk.settings import LizardSettings
 
-__all__ = ["get_local_test_settings"]
+__all__ = ["get_local_test_settings", "LocalTestSettings"]
 
 
 class TestThreediSettings(BaseModel):
@@ -24,7 +27,7 @@ class TestDataset(BaseModel):
 
 
 class LocalTestSettings(BaseSettings):
-    lizard: LizardSettings
+    lizard: LizardSettings | None = None
     threedi: TestThreediSettings | None = None
     datasets: dict[str, TestDataset] = {}
 

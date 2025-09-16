@@ -9,9 +9,6 @@ dependencies:
   - pip
   # pip/PyPI packages
   - pip:
-      - clean-python[api-client]
-      - pydantic-settings-yaml
-      - threedi_api_client
+      - rana-process-sdk
       - threedi_schema
       - GeoAlchemy2
-      - prefect==3.2.7
