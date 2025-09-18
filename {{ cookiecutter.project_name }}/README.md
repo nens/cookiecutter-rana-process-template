@@ -31,7 +31,7 @@ Furthermore, the `project_dir` points to a directory used to contain files as if
 The `get_local_test_settings()` function reads the `local_test/config.yaml` file containing local test configuration (see next paragraph).
 The `cleanup_workdir` flag indicates if the `working_dir` must be removed after the process run (turn off to inspect files after  process execution).
 
-Copy `local_test/placeholder_config.conf` to `local_test/config.conf` and adjust it for your local test run, if necessary.
+Copy `local_test/placeholder_config.yaml` to `local_test/config.yaml` and adjust it for your local test run, if necessary.
 Depending on your process, the most common configuration use cases are authentication with Lizard or 3Di.
 Another case is if your process interacts with dataset normally provided in Rana, these would also be configured here.
 See [LocalTestSettings](https://github.com/nens/rana-process-sdk/blob/main/src/rana_process_sdk/settings/local_test_settings.py) for all configuration options.
