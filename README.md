@@ -8,7 +8,6 @@ Quickstart:
 
 > `conda run cookiecutter https://github.com/nens/cookiecutter-rana-process-template`
 
-
 To use the template, do not clone this repository!
 
 This repository `cookiecutter-rana-process-template` provides a Cookiecutter ([www.cookiecutter.io](https://www.cookiecutter.io/)) template to generate a fresh Rana process project from a template.
@@ -18,7 +17,7 @@ First make sure you have Cookiecutter installed before using the template, see >
 
 ## Using the template
 
-You initiate the template by call cookiecutter with the URL of this GitHub repository.
+You initiate the template by calling cookiecutter with the URL of this GitHub repository.
 It will ask for a project name, these requirements apply: the name should be lowercase only, start with `rana-process-`, use dashes, no underscores.
 For example something like `rana-process-flater-sync`.
 

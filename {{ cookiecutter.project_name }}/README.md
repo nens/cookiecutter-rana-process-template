@@ -1,14 +1,14 @@
 # {{ cookiecutter.project_name }}
 
 In this project you can implement your Rana process workflow, ready to be deployed in our Nelen & Schuurmans Rana platform.
-Write your process in the `src/process.py` script, add additional files or modules as needed.
+Write your process in the `src/process.py` script and add additional files or modules as needed.
 Processes use the RanaSDK package to interact with the platform, handle inputs and outputs, and manage runtime contexts.
 See the [rana-process-sdk](https://pypi.org/project/rana-process-sdk/) on PyPI for more information.
 
 ## Run process local test
 
 On [https://www.ranawaterintelligence.com/](https://www.ranawaterintelligence.com/) processes rely on an online runtime for inputs, outputs of project files, and interaction with external systems.
-The Rana process SDK support a local test runtime to be able to run a process in your own environment.
+The Rana process SDK supports a local test runtime, allowing you to run a process in your own environment.
 This allows files to be read and written from your local filesystem, instead of your project on the Rana platform.
 See the following instructions how to configure this local runtime and run your process.
 
@@ -27,14 +27,14 @@ runtime = LocalTestRanaRuntime(
 ```
 
 This runtime configuration defines the `working_dir` path, which will be created to hold temporary files during the process run.
-Futhermore, the `project_dir` points to a directory used to contain files as if it is a project in Rana.
+Furthermore, the `project_dir` points to a directory used to contain files as if it were a project in Rana.
 The `get_local_test_settings()` function reads the `local_test/config.yaml` file containing local test configuration (see next paragraph).
 The `cleanup_workdir` flag indicates if the `working_dir` must be removed after the process run (turn off to inspect files after  process execution).
 
-Copy `local_test/placeholder_config.conf` to `local_test/config.conf` and adjust for your local test run is not always necessary.
-Depending on your process, the most common configuration use cases are authentication with Lizard, or 3Di.
+Copy `local_test/placeholder_config.conf` to `local_test/config.conf` and adjust it for your local test run, if necessary.
+Depending on your process, the most common configuration use cases are authentication with Lizard or 3Di.
 Another case is if your process interacts with dataset normally provided in Rana, these would also be configured here.
-See the [LocalTestSettings](https://github.com/nens/rana-process-sdk/blob/main/src/rana_process_sdk/settings/local_test_settings.py)) for all configuration options.
+See [LocalTestSettings](https://github.com/nens/rana-process-sdk/blob/main/src/rana_process_sdk/settings/local_test_settings.py) for all configuration options.
 This part of the SDK is still being streamlined, so if you need help, please contact the Rana development team.
 
 #### Define input and output parameters
@@ -49,9 +49,9 @@ inputs = {
 outputs = {}
 ```
 
-You need to adjust the input and output variables to follow the the parameter declaration of the process you are developing.
+You need to adjust the input and output variables to match the parameter declaration of the process you are developing.
 
-To reference a file in a input parameter definition, use a dictionary with the `id` key to point to a file in the `project_dir`.
+To reference a file in an input parameter definition, use a dictionary with the `id` key to point to a file in the `project_dir`.
 ```python
 inputs = {
     "study_area": {"id": "test_shape_gp_1.gpkg"},
@@ -71,8 +71,8 @@ run_local_test(
 )
 ```
 
-The process will then be executed using the provided paramters in the local test runtime configuration.
-If the process reads files from the project, make sure they are present in the project directory at `local_test/project_dir` .
+The process will then be executed using the provided parameters in the local test runtime configuration.
+If the process reads files from the project, make sure they are present in the project directory at `local_test/project_dir`.
 
 #### Run local test
 
@@ -88,11 +88,11 @@ Run the following command to start the local test:
 conda run -n {{ cookiecutter.project_name }} python -m local_test.run
 ```
 
-Alternative, if `conda run` does not work, activate the environment first:
+Alternatively, if `conda run` does not work, activate the environment first:
 ```sh
 conda activate {{ cookiecutter.project_name }}
 ```
-Then execute the
+Then execute:
 
 ```sh
 python -m local_test.run
@@ -100,12 +100,12 @@ python -m local_test.run
 
 ## Upload your project to GitHub
 
-If you finish your Rana process project and would like to you can share it on GitHub.
+If you finish your Rana process project and would like to, you can share it on GitHub.
 First, use the following url to create a new empty repo on GitHub ('Empty' means no readme, .gitignore or license):
 
 > [https://github.com/new?name={{ cookiecutter.project_name }}&owner=nens&visibility=private&description=Rana+process](https://github.com/new?name={{ cookiecutter.project_name }}&owner=nens&visibility=private&description=Rana+process)
 
-Done? Go to your generated project and do some git magic:
+Once done, go to your generated project and run the following git commands:
 
 - Open terminal for your Rana process and initialize a new git repository:
 ```sh
@@ -142,6 +142,6 @@ git remote add origin git@github.com:nens/{{ cookiecutter.project_name }}.git
 git push origin
 ```
 
-- Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" add "programeurs" team with at least **read** access.
+- Go to the ["manage access" page](https://github.com/nens/{{ cookiecutter.project_name }}/settings/access) and click "add teams": add the "adviseurs" and "programeurs" teams with at least **read** access.
 
 - Lastly, share your project using the following URL: [https://github.com/nens/{{ cookiecutter.project_name }}](https://github.com/nens/{{ cookiecutter.project_name }})

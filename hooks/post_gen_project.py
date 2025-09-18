@@ -1,21 +1,17 @@
 from pathlib import Path
 
-PROJECT_NAME = "{{ cookiecutter.project_name }}"
 
-
-def print_instructions(project_name: str = PROJECT_NAME):
+def print_instructions():
     """This hook is executed inside the generated directory."""
     generated_dir = str(Path(".").absolute())
     print()
     print("Hurray!!! Your rana process project has been created.")
     print()
-    print("To get started, open the this project in VScode (or another IDE)")
+    print(
+        "To get started, open the this project in VScode (or another IDE) follow the README.md for next steps."
+    )
     print()
     print(f" > code {generated_dir}")
-    print()
-    print("See the README.md in the project for the next steps.")
-    print()
-    print(f" > {generated_dir}/README.md")
     print()
 
 
