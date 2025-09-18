@@ -85,7 +85,7 @@ conda env create -n {{ cookiecutter.project_name }} --file environment.yml
 
 Run the following command to start the local test:
 ```sh
-conda run -n {{ cookiecutter.project_name }} python local_test/run.py
+conda run -n {{ cookiecutter.project_name }} python -m local_test.run
 ```
 
 Alternative, if `conda run` does not work, activate the environment first:
@@ -95,7 +95,7 @@ conda activate {{ cookiecutter.project_name }}
 Then execute the
 
 ```sh
-python local_test/run.py
+python -m local_test.run
 ```
 
 ## Upload your project to GitHub
