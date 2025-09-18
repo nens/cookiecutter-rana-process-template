@@ -4,7 +4,7 @@ Quickstart:
 
 > `cookiecutter https://github.com/nens/cookiecutter-rana-process-template`
 
-**Want to use this template? Do not clone this repository!**
+To use the template, do not clone this repository!
 
 This repository `cookiecutter-rana-process-template` provides a Cookiecutter ([www.cookiecutter.io](https://www.cookiecutter.io/)) template to generate a fresh Rana process project from a template.
 The advantage: easy to start and a similar structure for every project.

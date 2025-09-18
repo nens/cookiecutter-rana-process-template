@@ -1,0 +1,6 @@
+*
+!.gitignore
+!project_dir/
+!run_local_test.py
+!placeholder_config.yaml
+!README.md
