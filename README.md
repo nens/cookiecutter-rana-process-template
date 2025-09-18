@@ -2,7 +2,9 @@
 
 Quickstart:
 
-> `cookiecutter https://github.com/nens/cookiecutter-rana-process-template`
+> `conda install conda-forge::cookiecutter`
+
+> `conda run cookiecutter https://github.com/nens/cookiecutter-rana-process-template`
 
 To use the template, do not clone this repository!
 
