@@ -1,5 +1,5 @@
 from rana_process_sdk import run_local_test, LocalTestRanaRuntime, get_local_test_settings
-o
+
 from src.process import process
 
 
