@@ -9,6 +9,6 @@ dependencies:
   - pip
   # pip/PyPI packages
   - pip:
-      - rana-process-sdk==0.2
+      - rana-process-sdk==0.3
       - threedi_schema
       - GeoAlchemy2
