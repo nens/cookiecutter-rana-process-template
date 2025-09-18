@@ -1,10 +1,13 @@
 # Cookiecutter template for N&S Rana processes
 
+Download data for Pizza course: [Rana publication link](https://test.ranawaterintelligence.com/nenstest/?shareKey=FYTDiTbeXh.xScgaaLmbs29jQjQAap2R&publication=xG6dpvTN)
+
 Quickstart:
 
 > `conda install conda-forge::cookiecutter`
 
 > `conda run cookiecutter https://github.com/nens/cookiecutter-rana-process-template`
+
 
 To use the template, do not clone this repository!
 
