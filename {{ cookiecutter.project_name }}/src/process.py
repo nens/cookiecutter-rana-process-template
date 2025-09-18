@@ -7,15 +7,10 @@ __all__ = ["process"]
 
 
 class ProcessInputs(RanaProcessParameters):
-    name: Annotated[
-        str,
-        Field(
-            title="Hello message", description="The name to use in the process", examples=["world"]
-        ),
-    ]
+    name: str = Field(title="Hello message", description="The name to use in the process", examples=["world"])
 
 class ProcessOutputs(RanaProcessParameters):
-    upper: Annotated[str, Field(title="Uppercase name", description="The name in uppercase")]
+    upper: str = Field(title="Uppercase name", description="The name in uppercase")
 
 
 
