@@ -98,6 +98,11 @@ Then execute:
 python -m local_test.run
 ```
 
+#### Debugging local test in a virtual environment
+
+In order to be able to debug your process (and walk though the code via breakpoints) the provided VSCode `launch.json` can be used.
+
+
 ## Upload your project to GitHub
 
 If you finish your Rana process project and would like to, you can share it on GitHub.
