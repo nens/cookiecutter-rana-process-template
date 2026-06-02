@@ -8,8 +8,9 @@
       "name": "{{ cookiecutter.__debug_action_name }}",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/run_local_test.py",
-      "console": "internalConsole",
+      "module": "local_test.run",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
     }
   ]
 }
